@@ -44,17 +44,18 @@ class BinarySearchTree {
       if (!node){
         return false;
       }
-      if (node.data === data){
+      if (node.data == data){
         return true;
       }
-      if(node.data < data){
-        return searchWithin(node.right,data);
+      else if(node.data < data){
+        return searchWithin(node.left,data);
       }
       else{
-        return searchWithin(node.left,data);
+        return searchWithin(node.right,data);
       }
     }
   }
+
 
   find(data) {
     return findNode(this.root1,data);
@@ -62,18 +63,17 @@ class BinarySearchTree {
       if (!node){
         return null;
       }
-      if (node.data ===data){
+      if (node.data ==data){
         return node;
       }
-      if (node.data<data){
-        return findNode(node.right, data);
+      else if (node.data<data){
+        return findNode(node.left, data);
       }
       else{
-        return findNode(node.left,data);
+        return findNode(node.right,data);
       }
     }
   }
-
   remove(data) {
     this.root1 = removeNode(this.root1, data);
     function removeNode(node, data) {
