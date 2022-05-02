@@ -38,17 +38,21 @@ class BinarySearchTree {
     }
   }
 
-  
   has(data) {
-    return searchWithIn(this.root1, data);
-
-    function searchWithIn(node, data) {
-      if (!node) return false;
-      if (node.data === data) return true;
-
-      return node.data <= data
- ? searchWithIn(node.right, data)
- : searchWithIn(node.left, data);
+    return searchWithin(this.root1, data);
+    function searchWithin(node,data){
+      if (!node){
+        return false;
+      }
+      if (node.data === data){
+        return true;
+      }
+      if(node.data < data){
+        return searchWithin(node.right,data);
+      }
+      else{
+        return searchWithin(node.left,data);
+      }
     }
   }
 
@@ -62,10 +66,10 @@ class BinarySearchTree {
         return node;
       }
       if (node.data<data){
-        return findNode(node.left, data);
+        return findNode(node.right, data);
       }
       else{
-        return findNode(node.right,data);
+        return findNode(node.left,data);
       }
     }
   }
@@ -107,7 +111,7 @@ class BinarySearchTree {
     }
   }
 
-  min() {
+  max() {
     if (!this.root1) return;
 
     let node = this.root1;
@@ -117,7 +121,7 @@ class BinarySearchTree {
     return node.data;
   }
 
-  max() {
+  min() {
     if (!this.root1){
       return;
     }
