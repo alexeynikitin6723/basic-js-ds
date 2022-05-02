@@ -74,18 +74,20 @@ class BinarySearchTree {
       }
     }
   }
+
+
   remove(data) {
-    this.root1 = removeNode(this.root1, data);
+    return removeNode(this.root1, data);
     function removeNode(node, data) {
       if (!node) {
         return null;
       }
       if (data <node.data) {
-        node.left = removeNode(node.left, data);
+        node.right = removeNode(node.right, data);
         return node;
       }
-      if (data> node.data) {
-        node.right = removeNode(node.right, data);
+      else if (data> node.data) {
+        node.left = removeNode(node.left, data);
         return node;
       } 
       else {
