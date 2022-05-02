@@ -39,7 +39,7 @@ class BinarySearchTree {
   }
 
   has(data) {
-    return searchWithin(this.root, data);
+    return searchWithin(this.root1, data);
     function searchWithin(node,data){
       if (!node){
         return false;
@@ -57,7 +57,7 @@ class BinarySearchTree {
   }
 
   find(data) {
-    this.root1 = findNode(this.root1,data);
+    return findNode(this.root1,data);
     function findNode(node,data){
       if (!node){
         return null;
